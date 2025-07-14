@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { UserService } from '../services/userService';
 import { User } from '../models/User';
+import  bcrypt from 'bcrypt';
 
 export class AuthController {
   static async login(req: Request, res: Response) {
@@ -18,7 +19,7 @@ export class AuthController {
       { userId: user.id },
       process.env.JWT_SECRET!,
       { expiresIn: '1h' }
-    );
+    ); 
 
     res.json({ token });
   }

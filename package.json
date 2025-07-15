@@ -15,8 +15,8 @@
   "type": "commonjs",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
-    "dev": "nodemon -L --watch '*.ts' --watch 'src/*.ts' --watch 'src/**/*.ts' --ext ts --exec ts-node src/server.ts",
+    "start": "node dist/index.js",
+    "dev": "nodemon -L --watch '*.ts' --watch '*.ts' --watch '**/*.ts' --ext ts --exec ts-node ./index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "migrate": "knex migrate:latest --knexfile knexfile.ts",

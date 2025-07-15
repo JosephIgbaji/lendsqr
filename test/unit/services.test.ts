@@ -1,6 +1,6 @@
-import { UserService } from '../../src/services/userService';
-import { AdjutorService } from '../../src/services/adjutorService';
-import { Users } from '../../src/models/User';
+import { UserService } from '../../services/userService';
+import { AdjutorService } from '../../services/adjutorService';
+import { Users } from '../../models/User';
 import bcrypt from 'bcrypt';
 
 // Mock chainable database functions
@@ -8,7 +8,7 @@ const insertMock = jest.fn();
 const whereMock = jest.fn();
 const firstMock = jest.fn();
 
-jest.mock('../../src/models/User', () => {
+jest.mock('../../models/User', () => {
   return {
     Users: jest.fn(() => ({
       insert: insertMock,
@@ -22,7 +22,7 @@ jest.mock('../../src/models/User', () => {
   };
 });
 
-jest.mock('../../src/models/User', () => ({
+jest.mock('../../models/User', () => ({
   Users: jest.fn(() => ({
     insert: insertMock,
     where: whereMock,
@@ -31,7 +31,7 @@ jest.mock('../../src/models/User', () => ({
   }))
 }));
 
-jest.mock('../../src/services/adjutorService', () => ({
+jest.mock('../../services/adjutorService', () => ({
   AdjutorService: {
     checkBlacklist: jest.fn()
   }

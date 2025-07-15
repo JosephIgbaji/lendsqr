@@ -14,7 +14,7 @@ const config: { [key: string]: Knex.Config } = {
       port: parseInt(process.env.DB_PORT || '3306'),
     },
     migrations: {
-      directory: './src/database/migrations',
+      directory: './database/migrations',
       extension: 'ts',
     },
   },

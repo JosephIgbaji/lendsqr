@@ -17,9 +17,10 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "dev": "nodemon -L --watch '*.ts' --watch 'src/*.ts' --watch 'src/**/*.ts' --ext ts --exec ts-node src/server.ts",
-    "migrate": "knex migrate:latest",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "migrate": "knex migrate:latest --knexfile knexfile.ts",
+    "migrate:rollback": "knex migrate:rollback --knexfile knexfile.ts"
   },
   "dependencies": {
     "axios": "^1.6.8",

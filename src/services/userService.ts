@@ -15,12 +15,14 @@ export class UserService {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(userData.password, saltRounds);
 
-    const [newUser] = await Users().insert({
+    const insertedIds = await Users().insert({
       ...userData,
       password: hashedPassword,
       balance: 0.00
-    }).returning('*');
+    });
 
+    const newUserId = insertedIds[0];
+    const newUser = await Users().where('id', newUserId).first();
     return newUser;
   }
 

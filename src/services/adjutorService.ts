@@ -7,10 +7,13 @@ export class AdjutorService {
   static async checkBlacklist(email: string): Promise<boolean> {
     try {
       const response = await axios.get(
-        `${process.env.ADJUTOR_API_URL}/verify`,
+        `${process.env.ADJUTOR_API_URL}/verification/karma/:identity`,
         {
           params: { email },
-          headers: { 'x-api-key': process.env.ADJUTOR_API_KEY! }
+          headers: {
+            "Authorization": `Bearer ${process.env.ADJUTOR_API_KEY}`,
+          }
+          // headers: { 'x-api-key': process.env.ADJUTOR_API_KEY! }
         }
       );
       

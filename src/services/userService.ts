@@ -37,4 +37,10 @@ export class UserService {
   static async updateBalance(userId: number, amount: number): Promise<void> {
     await Users().where({ id: userId }).increment('balance', amount);
   }
+
+   static async getUserBalance(userId: number): Promise<number> {
+    const user = await Users().where({ id: userId }).first();
+    if (!user) throw new Error('User not found');
+    return user.balance;
+  }
 }

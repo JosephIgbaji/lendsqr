@@ -25,6 +25,7 @@ A Node.js wallet service with MySQL, KnexJS, and TypeScript.
 | `/transactions/transfer` | POST | Transfer funds |
 | `/transactions/withdraw` | POST | Withdraw funds |
 | `/transactions/history` | GET | Get transaction history |
+| `/transactions/balance` | GET | Get Authenticated user balance |
 
 ## Testing
 Run unit tests: `npm test`
